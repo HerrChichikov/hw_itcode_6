@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <button onclick="document.location='best'">Сотрудник месяца</button>
+    <h1>{{ main_paragraph }}</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>ФИО</th>
+            <th>Должность</th>
+            <th>Телефон</th>
+        </tr>
+        </thead>
+        {% for person in workers %}
+                <tbody>
+                    <tr>
+                        <td>{{person.pk }}</td>
+                        <td>{{person.fio}}</td>
+                        <td>{{person.position}}</td>
+                        <td>{{person.phone_number}}</td>
+                    </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock content %}

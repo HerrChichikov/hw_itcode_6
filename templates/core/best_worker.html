@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <button onclick="history.back()">Все сотрудники</button>
+    <h1>{{ main_paragraph }}</h1>
+    {% for person in workers %}
+    {% if person.pk == 1%}
+{# Пока без этого. Пока...   <img src="images/best_workers.png" alt="Здесь должен быть наш лучший сотрудник">#}
+    <div class="mb-3 row">
+        <label for="best_name" class="col-sm-1 col-form-label">ФИО:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="best_name" value={{person.fio}}>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="best_posit" class="col-sm-1 col-form-label">Должность:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="best_posit" value={{person.position}}>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="best_addres" class="col-sm-1 col-form-label">Дом.адрес:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="best_addres" value={{person.home_address}}>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="best_phone" class="col-sm-1 col-form-label">Телефон:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="best_phone" value={{person.phone_number}}>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="best_mail" class="col-sm-1 col-form-label">E-mail:</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="best_mail" value={{person.mail}}>
+        </div>
+    </div>
+    {% endif%}
+    {% endfor %}
+
+{% endblock content %}
